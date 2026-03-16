@@ -1,0 +1,60 @@
+data_path: "Chronic_Data_Clean.csv"
+tabpfn_device: "auto"
+# auto, cpu, cuda
+
+scoring: "mcc"
+# accuracy, balanced_accuracy, f1_weighted, mcc
+
+oversampling: True
+# True, False
+
+model_selection:
+  all_models: false
+  selected_models:
+    - "RandomLabeling"
+    - "MajorityVote"
+    - "DecisionStump"
+    - "NaiveBayes"
+    - "QDA"
+    - "KNN"
+    - "RKNN"
+    - "LR"
+    - "RR"
+    - "SVC_linear"
+    - "SVC_poly"
+    - "SVC_sigmoid"
+    - "SVC_rbf"
+    - "DT"
+    - "Adaboost"
+    - "RF"
+    - "MLP"
+    - "XGB"
+    - "LGBM"
+    - "Tab"
+
+
+number_of_trials: 50
+
+seed: 42
+
+cross_validation:
+  n_splits: 5
+  shuffle: true
+
+scoring_metrics:
+  - "accuracy"
+  - "balanced_accuracy"
+  - "precision_weighted"
+  - "recall_weighted"
+  - "f1_weighted"
+  - "mcc"
+  - "cohen_kappa"
+  - "roc_auc_ovr_weighted"
+  - "roc_auc_ovo_weighted"
+
+start: 0
+end: 1
+# The portable pipeline expects exactly one target combination.
+
+combinations:
+  - [[0, 1], [2, 3, 4, 5]]
